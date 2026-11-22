@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Aura Captures | Freeze • Frame • Forever — Luxury Photography Studio</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,600&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            obsidian: '#060606',
+            charcoal: '#0f0f0f',
+            velvet: '#14120e',
+            gold: {
+              DEFAULT: '#e5b864',
+              light: '#f4d38a',
+              bright: '#fff1b8',
+              deep: '#b4812e',
+            }
+          },
+          fontFamily: {
+            cinzel: ['Cinzel', 'serif'],
+            cormorant: ['Cormorant Garamond', 'serif'],
+            montserrat: ['Montserrat', 'sans-serif'],
+          }
+        }
+      }
+    };
+  </script>
+
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body class="bg-obsidian text-gray-200 antialiased selection:bg-gold selection:text-obsidian">
+
+  <!-- ==================== 1. CINEMATIC OPENING LOGO CURTAIN (NO SKIP OR REPLAY BUTTON) ==================== -->
+  <div id="introOverlay" role="dialog" aria-label="Aura Captures Opening Logo Animation">
+    <div class="ambient-glow"></div>
+    <div class="particles" id="particles"></div>
+
+    <div class="intro-stage" id="introStage">
+      <svg viewBox="0 0 800 450" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <!-- Unique Prefixed Gradients & Mask so there is zero ID collision -->
+          <linearGradient id="introGoldMetallic" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#fff1b8" />
+            <stop offset="30%" stop-color="#e5b864" />
+            <stop offset="65%" stop-color="#b4812e" />
+            <stop offset="100%" stop-color="#f7dc8d" />
+          </linearGradient>
+
+          <linearGradient id="introGoldText" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stop-color="#fff4ca" />
+            <stop offset="45%" stop-color="#e3b868" />
+            <stop offset="85%" stop-color="#a87628" />
+            <stop offset="100%" stop-color="#e8c374" />
+          </linearGradient>
+
+          <linearGradient id="introGoldStroke" x1="0%" y1="100%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="#7c5214" />
+            <stop offset="45%" stop-color="#ffe79e" />
+            <stop offset="70%" stop-color="#fff9db" />
+            <stop offset="100%" stop-color="#9e6f24" />
+          </linearGradient>
+
+          <linearGradient id="introDividerGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="rgba(212,170,93,0)" />
+            <stop offset="30%" stop-color="rgba(212,170,93,0.8)" />
+            <stop offset="50%" stop-color="rgba(255,236,175,1)" />
+            <stop offset="70%" stop-color="rgba(212,170,93,0.8)" />
+            <stop offset="100%" stop-color="rgba(212,170,93,0)" />
+          </linearGradient>
+
+          <radialGradient id="introFlashGrad" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stop-color="#ffffff" stop-opacity="1" />
+            <stop offset="30%" stop-color="#ffe599" stop-opacity="0.75" />
+            <stop offset="100%" stop-color="#000000" stop-opacity="0" />
+          </radialGradient>
+
+          <radialGradient id="introHotspotGrad" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stop-color="#ffffff" stop-opacity="1" />
+            <stop offset="40%" stop-color="#ffe49e" stop-opacity="0.55" />
+            <stop offset="100%" stop-color="#000000" stop-opacity="0" />
+          </radialGradient>
+
+          <linearGradient id="introShimmerGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="rgba(255,255,255,0)" />
+            <stop offset="50%" stop-color="rgba(255,244,194,0.5)" />
+            <stop offset="100%" stop-color="rgba(255,255,255,0)" />
+          </linearGradient>
+
+          <!-- Shimmer Mask over Logo -->
+          <mask id="introLogoMask">
+            <rect width="800" height="450" fill="black" />
+            <text x="408" y="254" text-anchor="middle" font-family="Cinzel, serif" font-size="74" font-weight="500" letter-spacing="5" fill="white">AURA</text>
+            <text x="407" y="286" text-anchor="middle" font-family="Montserrat, sans-serif" font-size="20" font-weight="300" letter-spacing="14" fill="white">CAPTURES</text>
+          </mask>
+        </defs>
+
+        <!-- 1. Camera Silhouette Outline -->
+        <path class="camera-outline"
+          d="M 278 202
+             L 278 164
+             Q 278 152 290 152
+             L 304 152
+             L 304 146
+             L 322 146
+             L 322 152
+             L 354 152
+             Q 364 152 371 140
+             L 377 132
+             Q 383 125 393 125
+             L 431 125
+             Q 441 125 447 132
+             L 453 140
+             Q 460 152 470 152
+             L 516 152
+             Q 528 152 528 164
+             L 528 202" />
+
+        <!-- Camera Rim Hotspot Glows -->
+        <circle class="rim-hotspot" cx="426" cy="126" r="18" fill="url(#introHotspotGrad)" />
+        <circle class="rim-hotspot" cx="523" cy="157" r="14" fill="url(#introHotspotGrad)" />
+
+        <!-- 2. 6-Blade Camera Aperture -->
+        <g class="aperture-group">
+          <g transform="translate(412, 168)">
+            <path class="aperture-blade" d="M -6,-26 A 27,27 0 0,1 18,-19 L 4,-4 Z" transform="rotate(0)" />
+            <path class="aperture-blade" d="M -6,-26 A 27,27 0 0,1 18,-19 L 4,-4 Z" transform="rotate(60)" />
+            <path class="aperture-blade" d="M -6,-26 A 27,27 0 0,1 18,-19 L 4,-4 Z" transform="rotate(120)" />
+            <path class="aperture-blade" d="M -6,-26 A 27,27 0 0,1 18,-19 L 4,-4 Z" transform="rotate(180)" />
+            <path class="aperture-blade" d="M -6,-26 A 27,27 0 0,1 18,-19 L 4,-4 Z" transform="rotate(240)" />
+            <path class="aperture-blade" d="M -6,-26 A 27,27 0 0,1 18,-19 L 4,-4 Z" transform="rotate(300)" />
+          </g>
+        </g>
+
+        <!-- 3. Shutter Flash + Shockwave Ring -->
+        <circle class="shockwave-ring" cx="412" cy="168" r="28" />
+        <circle class="flash-flare" cx="412" cy="168" r="80" fill="url(#introFlashGrad)" />
+
+        <!-- 4. Brand Title: AURA -->
+        <text class="brand-aura" x="408" y="254" text-anchor="middle">AURA</text>
+
+        <!-- 5. Signature Gold Swoosh on 'A' -->
+        <path class="swoosh"
+          d="M 192 256
+             Q 248 202 325 256
+             Q 255 218 192 256 Z" />
+
+        <!-- 6. Subtitle: CAPTURES -->
+        <text class="brand-captures" x="407" y="286" text-anchor="middle">CAPTURES</text>
+
+        <!-- 7. Divider Line & Autofocus Viewfinder Frame -->
+        <line class="divider-line" x1="200" y1="314" x2="386" y2="314" />
+        <line class="divider-line" x1="414" y1="314" x2="600" y2="314" />
+        <g class="mini-frame" stroke="#e3b868" stroke-width="1.3" fill="none">
+          <path d="M 392 311 L 392 308 L 396 308 M 404 308 L 408 308 L 408 311 M 408 317 L 408 320 L 404 320 M 396 320 L 392 320 L 392 317" />
+        </g>
+
+        <!-- 8. Tagline -->
+        <text class="tagline" x="400" y="340" text-anchor="middle">FREEZE  •  FRAME  •  FOREVER</text>
+
+        <!-- 9. Metallic Gold Shimmer Pass -->
+        <g mask="url(#introLogoMask)">
+          <rect class="shimmer-bar" x="0" y="180" width="120" height="140" fill="url(#introShimmerGrad)" />
+        </g>
+
+        <!-- 10. Twinkling Star Glints -->
+        <path class="glint glint-1" d="M 523 145 L 525 155 L 535 157 L 525 159 L 523 169 L 521 159 L 511 157 L 521 155 Z" fill="#fff7d6" />
+        <path class="glint glint-2" d="M 271 193 L 272.5 200 L 279.5 201.5 L 272.5 203 L 271 210 L 269.5 203 L 262.5 201.5 L 269.5 200 Z" fill="#fff7d6" />
+      </svg>
+    </div>
+  </div>
+
+  <!-- ==================== 2. STICKY GLASSMORPHIC HEADER ==================== -->
+  <header class="sticky top-0 z-40 bg-obsidian/85 backdrop-blur-xl border-b border-gold/20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      <!-- Brand Emblem -->
+      <a href="#home" class="flex items-center gap-3.5 group">
+        <div class="w-11 h-11 rounded-2xl bg-charcoal border border-gold/40 flex items-center justify-center group-hover:border-gold transition-all shadow-lg shadow-gold/10">
+          <svg class="w-7 h-7" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="headerGoldGrad" x1="0" y1="0" x2="64" y2="64" gradientUnits="userSpaceOnUse">
+                <stop offset="0%" stop-color="#fff1b8" />
+                <stop offset="50%" stop-color="#e5b864" />
+                <stop offset="100%" stop-color="#b4812e" />
+              </linearGradient>
+            </defs>
+            <path d="M10 24C10 20.6863 12.6863 18 16 18H20L24 12H40L44 18H48C51.3137 18 54 20.6863 54 24V44C54 47.3137 51.3137 50 48 50H16C12.6863 50 10 47.3137 10 44V24Z" stroke="url(#headerGoldGrad)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" />
+            <circle cx="32" cy="34" r="10" stroke="url(#headerGoldGrad)" stroke-width="2.2" />
+            <path d="M32 24L36.5 32M41.5 31L33 35.5M38 42L31 36M26 42L30.5 33.5M22.5 32L31 29.5" stroke="url(#headerGoldGrad)" stroke-width="1.8" stroke-linecap="round" />
+          </svg>
+        </div>
+        <div>
+          <span class="block font-cinzel text-lg sm:text-xl font-bold tracking-[0.24em] text-gold-metallic leading-none">AURA</span>
+          <span class="block text-[9px] tracking-[0.42em] text-gold-light/85 uppercase mt-1">Captures</span>
+        </div>
+      </a>
+
+      <!-- Desktop Nav Links -->
+      <nav class="hidden md:flex items-center gap-8 text-xs font-medium uppercase tracking-[0.22em] text-gray-300">
+        <a href="#categories" class="hover:text-gold transition-colors">Categories</a>
+        <a href="#portfolio" class="hover:text-gold transition-colors">Portfolio</a>
+        <a href="#packages" class="hover:text-gold transition-colors">Packages</a>
+        <button type="button" onclick="openRegistrationModal({ category: 'Wedding Shoots', package: 'Signature Package' })" class="hover:text-gold transition-colors uppercase tracking-[0.22em]">Concierge</button>
+      </nav>
+
+      <!-- Header Actions -->
+      <div class="flex items-center gap-2.5 sm:gap-3">
+        <button type="button" onclick="openRegistrationModal({ category: 'Wedding Shoots', package: 'Signature Package' })" class="px-5 sm:px-6 py-2.5 rounded-full btn-gold-luxury text-xs font-bold tracking-[0.18em] uppercase">
+          Book a Shoot
+        </button>
+        <button type="button" id="mobileMenuBtn" aria-label="Toggle Menu" class="md:hidden p-2.5 rounded-xl bg-charcoal border border-gold/30 text-gold-light">
+          ☰
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Dropdown -->
+    <div id="mobileMenu" class="hidden md:hidden bg-charcoal border-b border-gold/25 px-4 py-4 space-y-2">
+      <a href="#categories" class="mobile-nav-link block px-4 py-2.5 rounded-xl text-xs uppercase tracking-[0.2em] text-gray-200 hover:bg-gold/10 hover:text-gold">12 Categories</a>
+      <a href="#portfolio" class="mobile-nav-link block px-4 py-2.5 rounded-xl text-xs uppercase tracking-[0.2em] text-gray-200 hover:bg-gold/10 hover:text-gold">Portfolio</a>
+      <a href="#packages" class="mobile-nav-link block px-4 py-2.5 rounded-xl text-xs uppercase tracking-[0.2em] text-gray-200 hover:bg-gold/10 hover:text-gold">Wedding Packages</a>
+    </div>
+  </header>
+
+  <!-- ==================== 3. EDITORIAL HERO SECTION ==================== -->
+  <section id="home" class="relative min-h-[88vh] flex items-center justify-center py-20 px-4 overflow-hidden">
+    <!-- Subtle Golden Studio Halo -->
+    <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(229,184,100,0.14)_0%,rgba(6,6,6,1)_68%)] pointer-events-none"></div>
+
+    <div class="relative z-10 max-w-5xl mx-auto text-center">
+      <!-- Interactive Crest Card -->
+      <div onclick="openRegistrationModal({ category: 'Wedding Shoots', package: 'Signature Package' })" class="cursor-pointer inline-block mb-8 p-6 sm:p-8 rounded-3xl bg-charcoal/80 border border-gold/30 hover:border-gold transition-all shadow-2xl shadow-gold/10 group relative">
+        <span class="absolute top-3 left-3 w-3 h-3 border-t border-l border-gold/60"></span>
+        <span class="absolute top-3 right-3 w-3 h-3 border-t border-r border-gold/60"></span>
+        <span class="absolute bottom-3 left-3 w-3 h-3 border-b border-l border-gold/60"></span>
+        <span class="absolute bottom-3 right-3 w-3 h-3 border-b border-r border-gold/60"></span>
+
+        <svg class="w-60 sm:w-72 h-auto mx-auto transition-transform duration-500 group-hover:scale-[1.03]" viewBox="0 0 360 155" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="heroCrestGold" x1="20" y1="10" x2="340" y2="140" gradientUnits="userSpaceOnUse">
+              <stop offset="0%" stop-color="#fff1b8" />
+              <stop offset="40%" stop-color="#e5b864" />
+              <stop offset="75%" stop-color="#f4d38a" />
+              <stop offset="100%" stop-color="#b4812e" />
+            </linearGradient>
+          </defs>
+          <path d="M108 58V42C108 36.5 112.5 32 118 32H142L153 18H207L218 32H242C247.5 32 252 36.5 252 42V58" stroke="url(#heroCrestGold)" stroke-width="2.5" stroke-linecap="round" />
+          <rect x="122" y="26" width="14" height="4" rx="2" fill="url(#heroCrestGold)" />
+          <circle cx="180" cy="48" r="18" stroke="url(#heroCrestGold)" stroke-width="2.2" />
+          <path d="M180 30L188 44M197 43L182 51M191 63L178 52M169 63L177 48M163 44L178 40" stroke="url(#heroCrestGold)" stroke-width="2" stroke-linecap="round" />
+          <text x="180" y="96" text-anchor="middle" fill="url(#heroCrestGold)" font-family="Cinzel, serif" font-size="44" font-weight="600" letter-spacing="10">AURA</text>
+          <path d="M55 96C85 74 125 76 155 98" stroke="url(#heroCrestGold)" stroke-width="2.5" stroke-linecap="round" />
+          <text x="180" y="117" text-anchor="middle" fill="#f4d38a" font-family="Montserrat, sans-serif" font-size="11" font-weight="500" letter-spacing="11">CAPTURES</text>
+          <line x1="65" y1="130" x2="165" y2="130" stroke="url(#heroCrestGold)" stroke-width="0.9" stroke-opacity="0.65" />
+          <rect x="174" y="126" width="12" height="8" rx="1.5" stroke="url(#heroCrestGold)" stroke-width="1" />
+          <line x1="195" y1="130" x2="295" y2="130" stroke="url(#heroCrestGold)" stroke-width="0.9" stroke-opacity="0.65" />
+          <text x="180" y="146" text-anchor="middle" fill="#e5b864" font-family="Montserrat, sans-serif" font-size="8.5" font-weight="500" letter-spacing="4.5">FREEZE  •  FRAME  •  FOREVER</text>
+        </svg>
+      </div>
+
+      <p class="text-gold text-xs font-semibold tracking-[0.38em] uppercase mb-4">FREEZE • FRAME • FOREVER</p>
+      <h1 class="font-cormorant text-4xl sm:text-6xl lg:text-7xl font-medium text-white leading-[1.08] mb-6">
+        Timeless Visual Storytelling <br class="hidden sm:inline" />
+        <span class="italic text-gold-metallic font-semibold">Crafted in Gold & Light</span>
+      </h1>
+      <p class="max-w-2xl mx-auto text-gray-400 text-sm sm:text-base font-light leading-relaxed mb-10">
+        Luxury wedding cinematography, sacred milestones, and editorial brand productions. Click any category, portfolio frame, or package below to reserve your dates.
+      </p>
+
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+        <button type="button" onclick="openRegistrationModal({ category: 'Wedding Shoots', package: 'Signature Package' })" class="w-full sm:w-auto px-9 py-4 rounded-full btn-gold-luxury text-xs font-bold tracking-[0.2em] uppercase">
+          Reserve Your Date
+        </button>
+        <a href="#packages" class="w-full sm:w-auto px-9 py-4 rounded-full bg-charcoal border border-gold/40 text-gold-light text-xs font-semibold tracking-[0.2em] uppercase hover:border-gold hover:bg-gold/10 transition-all">
+          Explore Packages
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== 4. ALL 12 PHOTOGRAPHY & FILM CATEGORIES (ACCORDION HEADINGS) ==================== -->
+  <section id="categories" class="py-24 px-4 bg-charcoal border-t border-gold/15">
+    <div class="max-w-5xl mx-auto">
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-14 gap-6">
+        <div>
+          <span class="text-gold text-xs font-semibold tracking-[0.32em] uppercase">Your Categories • Our Services</span>
+          <h2 class="font-cinzel text-3xl sm:text-4xl font-semibold text-white mt-3">Photography & Film Categories</h2>
+          <p class="text-gray-400 text-sm sm:text-base font-light mt-2 max-w-2xl">
+            Select any shoot heading below to expand full production details and reserve your session.
+          </p>
+        </div>
+        <button type="button" onclick="openRegistrationModal({ category: 'Total Wedding Package', package: 'Total Wedding Package' })" class="self-start md:self-auto px-6 py-3 rounded-full border border-gold/50 text-gold-light text-xs font-semibold tracking-[0.18em] uppercase hover:bg-gold hover:text-obsidian transition-all">
+          + Custom Shoot Inquiry
+        </button>
+      </div>
+
+      <!-- Accordion Headings Container (Populated by JS) -->
+      <div id="categoriesAccordion" class="space-y-3.5"></div>
+    </div>
+  </section>
+
+  <!-- ==================== 5. CURATED PORTFOLIO GALLERY ==================== -->
+  <section id="portfolio" class="py-24 px-4 bg-obsidian border-t border-gold/15">
+    <div class="max-w-7xl mx-auto">
+      <div class="flex flex-col lg:flex-row lg:items-end justify-between mb-12 gap-6">
+        <div>
+          <span class="text-gold text-xs font-semibold tracking-[0.32em] uppercase">Visual Showcase</span>
+          <h2 class="font-cinzel text-3xl sm:text-4xl font-semibold text-white mt-3">Curated Portfolio Gallery</h2>
+          <p class="text-gray-400 text-sm font-light mt-2">Click any frame to open the registration modal pre-filled with that shoot style.</p>
+        </div>
+
+        <!-- Filter Tabs -->
+        <div id="portfolioFilters" class="flex flex-wrap gap-2">
+          <button type="button" data-filter="all" class="filter-tab px-4 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider bg-gold text-obsidian transition-all">All Works</button>
+          <button type="button" data-filter="weddings" class="filter-tab px-4 py-2.5 rounded-full text-xs font-medium uppercase tracking-wider bg-charcoal text-gray-300 border border-gold/25 hover:border-gold transition-all">Weddings & Haldi</button>
+          <button type="button" data-filter="prewedding" class="filter-tab px-4 py-2.5 rounded-full text-xs font-medium uppercase tracking-wider bg-charcoal text-gray-300 border border-gold/25 hover:border-gold transition-all">Pre-Wedding & Songs</button>
+          <button type="button" data-filter="milestones" class="filter-tab px-4 py-2.5 rounded-full text-xs font-medium uppercase tracking-wider bg-charcoal text-gray-300 border border-gold/25 hover:border-gold transition-all">Half Saree & Milestones</button>
+          <button type="button" data-filter="commercial" class="filter-tab px-4 py-2.5 rounded-full text-xs font-medium uppercase tracking-wider bg-charcoal text-gray-300 border border-gold/25 hover:border-gold transition-all">Model & Brand</button>
+        </div>
+      </div>
+
+      <!-- Gallery Grid (Populated by JS) -->
+      <div id="portfolioGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+    </div>
+  </section>
+
+  <!-- ==================== 6. LUXURY WEDDING PACKAGES ==================== -->
+  <section id="packages" class="py-24 px-4 bg-charcoal border-t border-gold/15">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center max-w-2xl mx-auto mb-16">
+        <span class="text-gold text-xs font-semibold tracking-[0.32em] uppercase">Signature Collections</span>
+        <h2 class="font-cinzel text-3xl sm:text-4xl font-semibold text-white mt-3 mb-4">Luxury Wedding Packages</h2>
+        <p class="text-gray-400 text-sm sm:text-base font-light">
+          Select any collection below to open our VIP registration modal with full deliverables pre-loaded.
+        </p>
+      </div>
+
+      <!-- 3-Column Package Grid -->
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch">
+        
+        <!-- MODERN PACKAGE -->
+        <div onclick="openRegistrationModal({ category: 'Wedding Shoots', package: 'Modern Package' })" class="cursor-pointer bg-obsidian rounded-3xl p-8 gold-hairline flex flex-col justify-between group">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <span class="text-[11px] font-semibold tracking-[0.25em] uppercase text-gold-light/80">Collection I</span>
+              <span class="px-3 py-1 rounded-full bg-gold/10 border border-gold/25 text-xs font-cinzel text-gold">01</span>
+            </div>
+            <h3 class="font-cinzel text-2xl font-bold text-white group-hover:text-gold-light transition-colors mb-2">Modern Package</h3>
+            <p class="text-gray-400 text-xs mb-6 pb-6 border-b border-gold/15">Essential traditional photography & film with heirloom album.</p>
+
+            <ol class="space-y-3.5 text-sm text-gray-300 mb-8 list-decimal list-inside marker:text-gold marker:font-semibold">
+              <li>Traditional Photography</li>
+              <li>Traditional Videography</li>
+              <li>1 Premium Designer Album</li>
+              <li>1 Photo Frame <span class="text-gold-light font-medium">(12×18)</span></li>
+              <li>1 Pendrive containing all raw footage + edited photos & videos</li>
+            </ol>
+          </div>
+
+          <button type="button" class="w-full py-4 px-6 rounded-full border border-gold/50 text-gold-light text-xs font-bold tracking-[0.2em] uppercase group-hover:bg-gold group-hover:text-obsidian transition-all">
+            Select Modern Package →
+          </button>
+        </div>
+
+        <!-- PREMIUM PACKAGE -->
+        <div onclick="openRegistrationModal({ category: 'Wedding Shoots', package: 'Premium Package' })" class="cursor-pointer bg-obsidian rounded-3xl p-8 gold-hairline flex flex-col justify-between group">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <span class="text-[11px] font-semibold tracking-[0.25em] uppercase text-gold-light/80">Collection II</span>
+              <span class="px-3 py-1 rounded-full bg-gold/10 border border-gold/25 text-xs font-cinzel text-gold">02</span>
+            </div>
+            <h3 class="font-cinzel text-2xl font-bold text-white group-hover:text-gold-light transition-colors mb-2">Premium Package</h3>
+            <p class="text-gray-400 text-xs mb-6 pb-6 border-b border-gold/15">Candid artistry paired with an outdoor pre-wedding session.</p>
+
+            <ol class="space-y-3 text-sm text-gray-300 mb-8 list-decimal list-inside marker:text-gold marker:font-semibold">
+              <li>Traditional Photography</li>
+              <li>Traditional Videography</li>
+              <li class="text-white font-medium">Candid Photography</li>
+              <li class="text-white font-medium">Outdoor Pre-Wedding Shoot</li>
+              <li>2 Premium Designer Albums</li>
+              <li>1 Photo Frame <span class="text-gold-light font-medium">(16×24)</span></li>
+              <li>1 Pendrive containing all raw footage + edited photos & videos</li>
+            </ol>
+          </div>
+
+          <button type="button" class="w-full py-4 px-6 rounded-full border border-gold/50 text-gold-light text-xs font-bold tracking-[0.2em] uppercase group-hover:bg-gold group-hover:text-obsidian transition-all">
+            Select Premium Package →
+          </button>
+        </div>
+
+        <!-- SIGNATURE PACKAGE (ROYAL EDITION) -->
+        <div onclick="openRegistrationModal({ category: 'Wedding Shoots', package: 'Signature Package' })" class="cursor-pointer bg-gradient-to-b from-[#1f190e] via-[#12100b] to-[#080808] rounded-3xl p-8 border-2 border-gold shadow-[0_0_50px_rgba(229,184,100,0.18)] flex flex-col justify-between relative lg:-translate-y-4 group">
+          <div class="absolute -top-4 left-1/2 -translate-x-1/2 px-5 py-1.5 rounded-full btn-gold-luxury text-[10px] font-extrabold tracking-[0.22em] uppercase whitespace-nowrap">
+            ★ Most Requested / Royal Edition
+          </div>
+
+          <div>
+            <div class="flex items-center justify-between mb-4 mt-2">
+              <span class="text-[11px] font-semibold tracking-[0.25em] uppercase text-gold">Collection III • All-Inclusive</span>
+              <span class="px-3 py-1 rounded-full bg-gold/20 border border-gold/40 text-xs font-cinzel font-bold text-gold">03</span>
+            </div>
+            <h3 class="font-cinzel text-2xl sm:text-3xl font-bold text-gold-metallic mb-2">Signature Package</h3>
+            <p class="text-gray-300 text-xs mb-6 pb-6 border-b border-gold/25">Complete cinematic wedding production with song film & dual pendrives.</p>
+
+            <ol class="space-y-2.5 text-sm text-gray-200 mb-8 list-decimal list-inside marker:text-gold marker:font-bold">
+              <li>Traditional Photography</li>
+              <li>Traditional Videography</li>
+              <li class="text-white font-medium">Candid Photography</li>
+              <li class="text-white font-medium">Candid Cinematography</li>
+              <li class="text-white font-medium">Cinematic Song Shoot</li>
+              <li class="text-white font-medium">Pre-Wedding Shoot</li>
+              <li>2 Premium Designer Albums</li>
+              <li>2 Photo Frames <span class="text-gold-light font-medium">(12×18 & 16×24)</span></li>
+              <li>2 Pendrives (One dedicated to Pre-Wedding & Song Shoot; second containing all raw footage + edited photos & videos)</li>
+            </ol>
+          </div>
+
+          <button type="button" class="w-full py-4 px-6 rounded-full btn-gold-luxury text-xs font-extrabold tracking-[0.2em] uppercase">
+            Select Signature Package →
+          </button>
+        </div>
+
+      </div>
+
+      <!-- TOTAL WEDDING PACKAGE BANNER -->
+      <div onclick="openRegistrationModal({ category: 'Total Wedding Package', package: 'Total Wedding Package' })" class="cursor-pointer mt-16 rounded-3xl bg-gradient-to-r from-obsidian via-[#1c160b] to-obsidian border border-gold/45 hover:border-gold p-8 sm:p-10 flex flex-col lg:flex-row items-center justify-between gap-6 transition-all shadow-2xl shadow-gold/10 group">
+        <div class="text-center lg:text-left">
+          <span class="inline-block px-3.5 py-1 rounded-full bg-gold/15 border border-gold/30 text-gold text-[10px] font-semibold tracking-[0.25em] uppercase mb-3">
+            Full-Scale Multi-Day Production
+          </span>
+          <h3 class="font-cinzel text-2xl sm:text-3xl font-bold text-white group-hover:text-gold-light transition-colors">
+            Total Wedding Package
+          </h3>
+          <p class="text-gray-400 text-sm sm:text-base mt-2 font-light">
+            If you want a Total Wedding Package, contact our bespoke concierge for customized multi-event coverage.
+          </p>
+        </div>
+        <button type="button" class="shrink-0 px-8 py-4 rounded-full btn-gold-luxury text-xs font-extrabold tracking-[0.2em] uppercase">
+          Contact Bespoke Concierge →
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== 7. FOOTER ==================== -->
+  <footer class="bg-obsidian border-t border-gold/20 py-14 px-4">
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-8">
+      <div onclick="openRegistrationModal({ category: 'Wedding Shoots', package: 'Signature Package' })" class="cursor-pointer text-center md:text-left">
+        <span class="font-cinzel text-2xl font-bold tracking-[0.24em] text-gold-metallic">AURA CAPTURES</span>
+        <p class="text-[11px] tracking-[0.38em] text-gold-light/80 uppercase mt-1.5">Freeze • Frame • Forever</p>
+      </div>
+
+      <div class="flex flex-wrap justify-center gap-6 text-xs uppercase tracking-[0.2em] text-gray-400">
+        <a href="#categories" class="hover:text-gold transition-colors">Categories</a>
+        <a href="#portfolio" class="hover:text-gold transition-colors">Portfolio</a>
+        <a href="#packages" class="hover:text-gold transition-colors">Packages</a>
+      </div>
+
+      <div class="text-center md:text-right text-xs text-gray-500">
+        <p>© <span id="footerYear"></span> Aura Captures Studio. All Rights Reserved.</p>
+        <button type="button" onclick="openRegistrationModal({ category: 'Wedding Shoots', package: 'Signature Package' })" class="mt-1.5 text-gold/85 hover:text-gold underline">
+          Open VIP Shoot Registration
+        </button>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==================== 8. CATEGORY IMAGE LIGHTBOX MODAL ==================== -->
+  <div id="imageLightboxModal" class="fixed inset-0 z-50 hidden bg-obsidian/95 backdrop-blur-xl p-4 sm:p-8 flex items-center justify-center">
+    <div class="relative max-w-4xl w-full rounded-3xl bg-charcoal border border-gold/45 overflow-hidden shadow-[0_0_80px_rgba(229,184,100,0.25)] modal-animate">
+      <div class="px-6 py-4 border-b border-gold/20 flex items-center justify-between bg-obsidian/80">
+        <div>
+          <span id="lightboxTag" class="block text-[10px] font-semibold uppercase tracking-[0.25em] text-gold">Category Preview</span>
+          <h3 id="lightboxTitle" class="font-cinzel text-lg sm:text-xl font-bold text-white mt-0.5">Category Title</h3>
+        </div>
+        <button type="button" onclick="closeImageLightbox()" aria-label="Close Image Preview" class="w-10 h-10 rounded-full bg-obsidian border border-gold/35 text-gold-light hover:bg-gold hover:text-obsidian transition-colors flex items-center justify-center font-bold">
+          ✕
+        </button>
+      </div>
+      <div class="bg-gradient-to-br from-[#1f190e] via-obsidian to-charcoal flex items-center justify-center max-h-[70vh] overflow-hidden">
+        <img id="lightboxImg" src="" alt="" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&w=1000&q=85';" class="w-full max-h-[70vh] object-contain" />
+      </div>
+      <div class="px-6 py-4 bg-obsidian/90 border-t border-gold/20 flex flex-wrap items-center justify-between gap-4">
+        <span class="text-xs text-gray-400">Aura Captures • Signature Editorial Lookbook</span>
+        <button type="button" id="lightboxBookBtn" class="px-6 py-2.5 rounded-full btn-gold-luxury text-xs font-extrabold tracking-[0.18em] uppercase">
+          Book This Category →
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== 9. UNIVERSAL VIP SHOOT REGISTRATION POP-UP MODAL ==================== -->
+  <div id="registrationModal" role="dialog" aria-modal="true" aria-labelledby="modalHeading" class="fixed inset-0 z-50 hidden bg-obsidian/90 backdrop-blur-xl p-4 sm:p-6 overflow-y-auto flex items-center justify-center">
+    <div class="relative w-full max-w-2xl rounded-3xl bg-charcoal border border-gold/45 shadow-[0_0_80px_rgba(229,184,100,0.22)] overflow-hidden my-auto modal-animate">
+      
+      <!-- Modal Top Gold Header -->
+      <div class="px-6 sm:px-8 py-5 bg-gradient-to-r from-obsidian via-[#1c160b] to-obsidian border-b border-gold/25 flex items-center justify-between gap-4">
+        <div>
+          <span class="block text-[10px] font-semibold uppercase tracking-[0.28em] text-gold">Aura Captures • VIP Concierge</span>
+          <h3 id="modalHeading" class="font-cinzel text-xl sm:text-2xl font-bold text-white mt-1">Reserve Your Shoot Session</h3>
+        </div>
+        <button type="button" onclick="closeRegistrationModal()" aria-label="Close Registration Modal" class="w-10 h-10 rounded-full bg-obsidian border border-gold/35 text-gold-light hover:bg-gold hover:text-obsidian transition-colors flex items-center justify-center font-bold shrink-0">
+          ✕
+        </button>
+      </div>
+
+      <!-- STEP 1: REGISTRATION FORM VIEW -->
+      <div id="modalFormContainer" class="p-6 sm:p-8">
+        <!-- Selected Category Preview Badge -->
+        <div class="mb-5 p-4 rounded-2xl bg-gradient-to-r from-[#1f190e] via-obsidian to-[#1a150c] border border-gold/40 flex items-center gap-4">
+          <img id="modalCategoryThumb" src="https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&w=1000&q=85" alt="Selected Category Preview" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&w=1000&q=85';" class="w-16 h-16 rounded-xl object-cover border border-gold/40 shrink-0" />
+          <div class="min-w-0 flex-1">
+            <span id="modalCategoryTagBadge" class="inline-block px-2.5 py-0.5 rounded-full bg-gold/15 border border-gold/30 text-[9px] font-bold uppercase tracking-[0.2em] text-gold mb-1">
+              Sacred Muhurtham & Pheras
+            </span>
+            <h4 id="modalCategoryNameBadge" class="font-cinzel text-base sm:text-lg font-bold text-white truncate">
+              Wedding Shoots
+            </h4>
+            <p id="modalCategorySetupBadge" class="text-[11px] text-gray-400 truncate mt-0.5">
+              Full-Day / Multi-Day • Royal Production Crew
+            </p>
+          </div>
+        </div>
+
+        <!-- Package Deliverables Highlight Box -->
+        <div class="mb-6 p-4 rounded-2xl bg-obsidian/90 border border-gold/25">
+          <span id="deliverablesTitle" class="block text-[10px] font-bold uppercase tracking-[0.22em] text-gold mb-1">Signature Package Deliverables</span>
+          <p id="deliverablesSummary" class="text-xs text-gray-300 leading-relaxed"></p>
+        </div>
+
+        <form id="vipRegistrationForm" class="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5">
+          <div>
+            <label for="clientName" class="block text-[11px] font-semibold uppercase tracking-[0.18em] text-gold-light mb-1.5">Full Name *</label>
+            <input type="text" id="clientName" required placeholder="e.g., Karthik & Ananya" class="w-full px-4 py-3 rounded-xl bg-obsidian border border-gold/25 text-white text-sm focus:border-gold focus:outline-none" />
+          </div>
+
+          <div>
+            <label for="clientPhone" class="block text-[11px] font-semibold uppercase tracking-[0.18em] text-gold-light mb-1.5">Mobile / WhatsApp Number *</label>
+            <input type="tel" id="clientPhone" required placeholder="+91 98765 43210" class="w-full px-4 py-3 rounded-xl bg-obsidian border border-gold/25 text-white text-sm focus:border-gold focus:outline-none" />
+          </div>
+
+          <div>
+            <label for="eventCategory" class="block text-[11px] font-semibold uppercase tracking-[0.18em] text-gold-light mb-1.5">Event Category *</label>
+            <select id="eventCategory" onchange="updateModalCategoryBadge()" class="w-full px-4 py-3 rounded-xl bg-obsidian border border-gold/25 text-white text-sm focus:border-gold focus:outline-none">
+              <option value="Birthday Shoots">Birthday Shoots</option>
+              <option value="Pre-Birthday Shoots">Pre-Birthday Shoots</option>
+              <option value="Baby Shower">Baby Shower</option>
+              <option value="Half Saree Shoot">Half Saree Shoot</option>
+              <option value="Wedding Shoots">Wedding Shoots</option>
+              <option value="Engagement Shoot">Engagement Shoot</option>
+              <option value="Haldi Photo & Video Shoot">Haldi Photo & Video Shoot</option>
+              <option value="Pre-Wedding Photo & Video Shoot">Pre-Wedding Photo & Video Shoot</option>
+              <option value="Reception Shoot">Reception Shoot</option>
+              <option value="Song Shoot">Song Shoot</option>
+              <option value="Model Shoot">Model Shoot</option>
+              <option value="Brand Promotion">Brand Promotion</option>
+              <option value="Total Wedding Package">Total Wedding Package</option>
+            </select>
+          </div>
+
+          <div>
+            <label for="packageTier" class="block text-[11px] font-semibold uppercase tracking-[0.18em] text-gold-light mb-1.5">Package Tier *</label>
+            <select id="packageTier" onchange="updateDeliverablesBox()" class="w-full px-4 py-3 rounded-xl bg-obsidian border border-gold/25 text-white text-sm focus:border-gold focus:outline-none">
+              <option value="Modern Package">Modern Package</option>
+              <option value="Premium Package">Premium Package</option>
+              <option value="Signature Package">Signature Package (Royal Edition)</option>
+              <option value="Total Wedding Package">Total Wedding Package</option>
+              <option value="Custom / Single Event">Custom / Single Event</option>
+            </select>
+          </div>
+
+          <div>
+            <label for="eventDate" class="block text-[11px] font-semibold uppercase tracking-[0.18em] text-gold-light mb-1.5">Event Date</label>
+            <input type="date" id="eventDate" class="w-full px-4 py-3 rounded-xl bg-obsidian border border-gold/25 text-white text-sm focus:border-gold focus:outline-none" />
+          </div>
+
+          <div>
+            <label for="eventVenue" class="block text-[11px] font-semibold uppercase tracking-[0.18em] text-gold-light mb-1.5">Venue / City</label>
+            <input type="text" id="eventVenue" placeholder="e.g., Bengaluru / Hyderabad" class="w-full px-4 py-3 rounded-xl bg-obsidian border border-gold/25 text-white text-sm focus:border-gold focus:outline-none" />
+          </div>
+
+          <div class="sm:col-span-2">
+            <label for="visionNotes" class="block text-[11px] font-semibold uppercase tracking-[0.18em] text-gold-light mb-1.5">Special Vision Notes</label>
+            <textarea id="visionNotes" rows="2" placeholder="Tell us about your ceremony schedule, locations, or custom requirements..." class="w-full px-4 py-3 rounded-xl bg-obsidian border border-gold/25 text-white text-sm focus:border-gold focus:outline-none"></textarea>
+          </div>
+
+          <div class="sm:col-span-2 pt-2">
+            <button type="submit" class="w-full py-4 px-6 rounded-full btn-gold-luxury text-xs font-extrabold tracking-[0.22em] uppercase">
+              Confirm & Generate VIP Shoot Pass →
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <!-- STEP 2: VIP BOOKING PASS CONFIRMATION VIEW -->
+      <div id="modalPassContainer" class="hidden p-6 sm:p-8 text-center">
+        <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-gold/15 border border-gold/40 text-gold text-[11px] font-bold uppercase tracking-[0.22em] mb-4">
+          ✦ Registration Confirmed
+        </div>
+        <h4 class="font-cinzel text-2xl sm:text-3xl font-bold text-gold-metallic">Official VIP Shoot Pass</h4>
+        <p id="vipPassCode" class="font-mono text-sm text-gold-light tracking-widest mt-1 mb-6">#AC-2026-842</p>
+
+        <div id="vipPassGrid" class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-left mb-7"></div>
+
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-3">
+          <a id="whatsappShareLink" href="#" target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto px-7 py-3.5 rounded-full btn-gold-luxury text-xs font-extrabold tracking-[0.18em] uppercase">
+            Send via WhatsApp to Studio
+          </a>
+          <button type="button" id="copyPassBtn" onclick="copyPassDetails()" class="w-full sm:w-auto px-6 py-3.5 rounded-full bg-obsidian border border-gold/40 text-gold-light text-xs font-semibold tracking-[0.18em] uppercase hover:border-gold transition-colors">
+            Copy Booking Receipt
+          </button>
+        </div>
+
+        <button type="button" onclick="resetModalToForm()" class="mt-5 text-xs text-gray-400 hover:text-gold underline">
+          ← Edit Booking Details
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ==================== 10. JAVASCRIPT LOGIC ==================== -->
+  <script src="js/script.js"></script>
+</body>
+</html>
